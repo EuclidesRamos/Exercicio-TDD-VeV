@@ -16,25 +16,17 @@ public class FiltroFaturas {
         return result;
     }
 
-    private double calculaTempo(String dataString) {
+    private double calculaTempo(Date data) {
         Date hoje = new Date();
         GregorianCalendar dataHojeCalendar = new GregorianCalendar();
         GregorianCalendar dataCalendar = new GregorianCalendar();
 
         dataHojeCalendar.setTime(hoje);
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
-        Date data = null;
-        try {
-            data = sdf.parse(dataString);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
         dataCalendar.setTime(data);
 
         int diaHoje = dataHojeCalendar.get(Calendar.DAY_OF_YEAR);
-        int diaFatura = dataCalendar.get(Calendar.DAY_OF_YEAR);
+        int diaData = dataCalendar.get(Calendar.DAY_OF_YEAR);
 
-        return diaHoje - diaFatura;
+        return diaHoje - diaData;
     }
 }
