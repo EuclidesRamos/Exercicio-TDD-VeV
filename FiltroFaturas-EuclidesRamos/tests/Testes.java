@@ -7,10 +7,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Testes {
 
+    private FiltroFaturas filtroFaturas;
+    private ClientController clientController;
+
     @BeforeEach
     public void before() {
-        ClientController clientController = new ClientController();
+        this.clientController = new ClientController();
         clientController.criaClient("Olavo", "22/05/2022", "Paraíba");
+        this.filtroFaturas = new FiltroFaturas(clientController);
     }
 
     @Test
@@ -32,29 +36,26 @@ public class Testes {
     public void assertFiltraFaturasComValorAbaixoDeDoisMil() throws ParseException {
         Client client = new Client("Olavo", "22/05/2022", "Paraíba");
         Fatura fatura = new Fatura(150, "30/10/2022", client.getGuid());
-        FiltroFaturas filtro = new FiltroFaturas();
         Fatura[] faturas = new Fatura[]{fatura};
 
-        assertEquals(0, filtro.filtrar(faturas).size());
+        assertEquals(0, filtroFaturas.filtrar(faturas).size());
     }
 
     @Test
     public void assertFiltraFaturasComValorEntreDoisMilEDoisMilEQuinhentos() throws ParseException {
         Client client = new Client("Olavo", "22/05/2022", "Paraíba");
         Fatura fatura = new Fatura(2200, "30/10/2022", client.getGuid());
-        FiltroFaturas filtro = new FiltroFaturas();
         Fatura[] faturas = new Fatura[]{fatura};
 
-        assertEquals(0, filtro.filtrar(faturas).size());
+        assertEquals(0, filtroFaturas.filtrar(faturas).size());
     }
 
     @Test
     public void assertFiltraFaturasComValorEntreDoisMilEQuinhentosETresMil() throws ParseException {
         Client client = new Client("Olavo", "22/05/2022", "Paraíba");
         Fatura fatura = new Fatura(2800, "30/10/2022", client.getGuid());
-        FiltroFaturas filtro = new FiltroFaturas();
         Fatura[] faturas = new Fatura[]{fatura};
 
-        assertEquals(0, filtro.filtrar(faturas).size());
+        assertEquals(0, filtroFaturas.filtrar(faturas).size());
     }
 }

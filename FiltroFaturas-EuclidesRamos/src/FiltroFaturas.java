@@ -3,6 +3,13 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class FiltroFaturas {
+
+    private ClientController clientController;
+
+    public FiltroFaturas(ClientController clientController) {
+        this.clientController = clientController;
+    }
+
     public List<Fatura> filtrar(Fatura[] faturas) {
         List<Fatura> result = new ArrayList<>(Arrays.asList(faturas));
         for (Fatura fatura : faturas) {
