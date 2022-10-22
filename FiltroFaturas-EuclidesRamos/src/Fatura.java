@@ -11,4 +11,8 @@ public class Fatura {
         this.data = data;
         this.cliente = cliente;
     }
+
+    public String getCliente() {
+        return cliente;
+    }
 }
