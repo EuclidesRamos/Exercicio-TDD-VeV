@@ -26,6 +26,6 @@ public class Testes {
         FiltroFaturas filtro = new FiltroFaturas();
         Fatura[] faturas = new Fatura[]{fatura};
 
-        assertEquals(0, filtro.filtrar(faturas).length);
+        assertEquals(0, filtro.filtrar(faturas).size());
     }
 }
