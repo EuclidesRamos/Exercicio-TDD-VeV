@@ -9,4 +9,8 @@ public class Client {
         this.data = data;
         this.estado = estado;
     }
+
+    public String getNome() {
+        return nome;
+    }
 }
