@@ -1,15 +1,18 @@
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.UUID;
 
 public class Client {
 
+    private UUID guid;
     private String nome;
     private Date data;
     private String estado;
 
     public Client(String nome, String data, String estado) throws ParseException {
         SimpleDateFormat formataData = new SimpleDateFormat("dd/MM/yyyy");
+        this.guid = UUID.randomUUID();
         this.nome = nome;
         this.data = formataData.parse(data);
         this.estado = estado;
@@ -20,6 +23,6 @@ public class Client {
     }
 
     public String getGuid() {
-        return nome + data;
+        return guid.toString();
     }
 }
