@@ -21,6 +21,7 @@ public class Testes {
 
     @Test
     public void assertFiltraFaturasComValorAbaixoDeDoisMil() {
+        Client client = new Client("Olavo", "22/05/2022", "Paraíba");
         Fatura fatura = new Fatura(150, "30/10/2022", client.getGuid());
         FiltroFaturas filtro = new FiltroFaturas();
         Fatura[] faturas = new Fatura[]{fatura};
