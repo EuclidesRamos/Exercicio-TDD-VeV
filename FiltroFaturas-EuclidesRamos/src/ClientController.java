@@ -12,9 +12,8 @@ public class ClientController {
     }
 
     public void criaClient(String nome, String data, String estado) {
-        SimpleDateFormat formataData = new SimpleDateFormat("dd/MM/yyyy");
         try {
-            Client client = new Client(nome, formataData.parse(data), estado);
+            Client client = new Client(nome, data, estado);
             clients.put(client.getGuid(), client);
         } catch (ParseException exception) {
             System.out.println(exception);
