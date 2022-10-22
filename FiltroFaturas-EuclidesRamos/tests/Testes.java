@@ -25,7 +25,7 @@ public class Testes {
         Fatura fatura = new Fatura(150, "30/10/2022", client.getGuid());
         FiltroFaturas filtro = new FiltroFaturas();
         Fatura[] faturas = new Fatura[]{fatura};
-        Fatura[] arrayVazio = new Fatura[];        
+        Fatura[] arrayVazio = new Fatura[]{};
 
         assertEquals(arrayVazio, filtro.filtrar(faturas));
     }
