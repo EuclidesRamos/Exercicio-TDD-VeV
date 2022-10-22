@@ -13,6 +13,10 @@ public class Fatura {
     }
 
     public String getCliente() {
-        return cliente;
+        return this.cliente;
+    }
+
+    public int getValor() {
+        return this.valor;
     }
 }
