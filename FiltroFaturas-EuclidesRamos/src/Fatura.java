@@ -1,3 +1,5 @@
+import java.util.Date;
+
 public class Fatura {
 
     private int codigo;
@@ -18,5 +20,9 @@ public class Fatura {
 
     public int getValor() {
         return this.valor;
+    }
+
+    public String getData() {
+        return data;
     }
 }
