@@ -8,7 +8,7 @@ public class FiltroFaturas {
         for (Fatura fatura : faturas) {
             if (fatura.getValor() < 2000) {
                 result.remove(fatura);
-            } else if (fatura.getValor() > 2000 && fatura.getValor() < 2500 && calculaTempo(fatura) <= 30) {
+            } else if (fatura.getValor() > 2000 && fatura.getValor() < 2500 && calculaTempo(fatura.getData()) <= 30) {
                 result.remove(fatura);
             }
         }
@@ -16,24 +16,24 @@ public class FiltroFaturas {
         return result;
     }
 
-    private double calculaTempo(Fatura fatura) {
+    private double calculaTempo(String dataString) {
         Date hoje = new Date();
-        GregorianCalendar dataHoje = new GregorianCalendar();
-        GregorianCalendar dataFatura = new GregorianCalendar();
-        
-        dataHoje.setTime(hoje);
+        GregorianCalendar dataHojeCalendar = new GregorianCalendar();
+        GregorianCalendar dataCalendar = new GregorianCalendar();
+
+        dataHojeCalendar.setTime(hoje);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
         Date data = null;
-        
         try {
-            data = sdf.parse(fatura.getData());
+            data = sdf.parse(dataString);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        dataFatura.setTime(data);
+        dataCalendar.setTime(data);
 
-        int diaHoje = dataHoje.get(Calendar.DAY_OF_YEAR);
-        int diaFatura = dataFatura.get(Calendar.DAY_OF_YEAR);
+        int diaHoje = dataHojeCalendar.get(Calendar.DAY_OF_YEAR);
+        int diaFatura = dataCalendar.get(Calendar.DAY_OF_YEAR);
 
         return diaHoje - diaFatura;
     }
