@@ -13,7 +13,6 @@ public class Testes {
     @BeforeEach
     public void before() {
         this.clientController = new ClientController();
-        clientController.criaClient("Olavo", "22/05/2022", "Paraíba");
         this.filtroFaturas = new FiltroFaturas(clientController);
     }
 
@@ -52,8 +51,8 @@ public class Testes {
 
     @Test
     public void assertFiltraFaturasComValorEntreDoisMilEQuinhentosETresMil() throws ParseException {
-        Client client = new Client("Olavo", "22/05/2022", "Paraíba");
-        Fatura fatura = new Fatura(2800, "30/10/2022", client.getGuid());
+        String clientGuid = clientController.criaClient("Olavo", "22/09/2022", "Paraíba");
+        Fatura fatura = new Fatura(2800, "30/10/2022", clientGuid);
         Fatura[] faturas = new Fatura[]{fatura};
 
         assertEquals(0, filtroFaturas.filtrar(faturas).size());

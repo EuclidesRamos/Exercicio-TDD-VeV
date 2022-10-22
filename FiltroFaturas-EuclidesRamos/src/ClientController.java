@@ -7,15 +7,21 @@ public class ClientController {
     private Map<String, Client> clients;
 
     public ClientController() {
-        clients = new HashMap();
+        this.clients = new HashMap<>();
     }
 
-    public void criaClient(String nome, String data, String estado) {
+    public String criaClient(String nome, String data, String estado) {
         try {
             Client client = new Client(nome, data, estado);
-            clients.put(client.getGuid(), client);
+            this.clients.put(client.getGuid(), client);
+            return client.getGuid();
         } catch (ParseException exception) {
             System.out.println(exception);
         }
+        return null;
+    }
+
+    public Client getClient(String clientGuid) {
+        return this.clients.get(clientGuid);
     }
 }

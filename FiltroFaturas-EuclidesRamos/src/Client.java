@@ -19,10 +19,14 @@ public class Client {
     }
 
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public String getGuid() {
-        return guid.toString();
+        return this.guid.toString();
+    }
+
+    public Date getData() {
+        return this.data;
     }
 }

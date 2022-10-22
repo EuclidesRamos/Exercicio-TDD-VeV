@@ -1,5 +1,3 @@
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class FiltroFaturas {
@@ -16,6 +14,8 @@ public class FiltroFaturas {
             if (fatura.getValor() < 2000) {
                 result.remove(fatura);
             } else if (fatura.getValor() > 2000 && fatura.getValor() < 2500 && calculaTempo(fatura.getData()) <= 30) {
+                result.remove(fatura);
+            } else if (fatura.getValor() > 2500 && fatura.getValor() < 3000 && calculaTempo(this.clientController.getClient(fatura.getCliente()).getData()) <= 60) {
                 result.remove(fatura);
             }
         }
