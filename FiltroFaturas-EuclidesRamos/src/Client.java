@@ -8,10 +8,9 @@ public class Client {
     private Date data;
     private String estado;
 
-    public Client(String nome, String data, String estado) throws ParseException {
-        SimpleDateFormat formataData = new SimpleDateFormat("dd/MM/yyyy");
+    public Client(String nome, Date data, String estado) {
         this.nome = nome;
-        this.data = formataData.parse(data);
+        this.data = data;
         this.estado = estado;
     }
 
