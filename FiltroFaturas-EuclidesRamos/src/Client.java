@@ -13,4 +13,8 @@ public class Client {
     public String getNome() {
         return nome;
     }
+
+    public String getGuid() {
+        return nome + data;
+    }
 }
