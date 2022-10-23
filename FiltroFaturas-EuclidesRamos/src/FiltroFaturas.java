@@ -11,13 +11,16 @@ public class FiltroFaturas {
     public List<Fatura> filtrar(Fatura[] faturas) {
         List<Fatura> result = new ArrayList<>(Arrays.asList(faturas));
         for (Fatura fatura : faturas) {
-            if (fatura.getValor() < 2000) {
+            int valorFatura = fatura.getValor();
+            Client client = this.clientController.getClient(fatura.getCliente());
+
+            if (valorFatura < 2000) {
                 result.remove(fatura);
-            } else if (fatura.getValor() > 2000 && fatura.getValor() < 2500 && calculaTempo(fatura.getData()) <= 30) {
+            } else if (valorFatura >= 2000 && valorFatura <= 2500 && calculaTempo(fatura.getData()) <= 30) {
                 result.remove(fatura);
-            } else if (fatura.getValor() > 2500 && fatura.getValor() < 3000 && calculaTempo(this.clientController.getClient(fatura.getCliente()).getData()) <= 60) {
+            } else if (valorFatura > 2500 && valorFatura <= 3000 && calculaTempo(client.getData()) <= 60) {
                 result.remove(fatura);
-            } else if (fatura.getValor() > 4000 && getRegiao(this.clientController.getClient(fatura.getCliente()).getEstado()).equals("Sul")) {
+            } else if (valorFatura > 4000 && getRegiao(client.getEstado()).equals("Sul")) {
                 result.remove(fatura);
             }
         }
