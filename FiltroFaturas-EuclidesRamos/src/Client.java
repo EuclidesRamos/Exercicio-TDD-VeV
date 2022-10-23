@@ -29,4 +29,8 @@ public class Client {
     public Date getData() {
         return this.data;
     }
+
+    public String getEstado() {
+        return this.estado;
+    }
 }
