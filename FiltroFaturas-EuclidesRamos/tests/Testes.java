@@ -61,7 +61,7 @@ public class Testes {
     @Test
     public void assertFiltraFaturasComValorMaiorQueTresMil() throws ParseException {
         String clientGuid = clientController.criaClient("Olavo", "22/09/2022", "Rio Grande do Sul");
-        Fatura fatura = new Fatura(3500, "30/10/2022", clientGuid);
+        Fatura fatura = new Fatura(4500, "30/10/2022", clientGuid);
         Fatura[] faturas = new Fatura[]{fatura};
 
         assertEquals(0, filtroFaturas.filtrar(faturas).size());

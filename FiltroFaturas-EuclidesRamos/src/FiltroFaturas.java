@@ -17,6 +17,8 @@ public class FiltroFaturas {
                 result.remove(fatura);
             } else if (fatura.getValor() > 2500 && fatura.getValor() < 3000 && calculaTempo(this.clientController.getClient(fatura.getCliente()).getData()) <= 60) {
                 result.remove(fatura);
+            } else if (fatura.getValor() > 4000 && getRegiao(this.clientController.getClient(fatura.getCliente())) == "Sul") {
+                result.remove(fatura);
             }
         }
 
