@@ -1,17 +1,18 @@
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.UUID;
 
 public class Fatura {
 
-    private int codigo;
+    private String codigo;
     private int valor;
     private Date data;
     private String cliente;
 
     public Fatura(int valor, String data, String cliente) throws ParseException {
         SimpleDateFormat formataData = new SimpleDateFormat("dd/MM/yyyy");
-        this.codigo = 123;
+        this.codigo = UUID.randomUUID().toString();
         this.valor = valor;
         this.data = formataData.parse(data);
         this.cliente = cliente;
