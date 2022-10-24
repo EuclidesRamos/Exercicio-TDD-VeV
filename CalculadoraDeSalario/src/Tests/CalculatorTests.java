@@ -16,4 +16,13 @@ public class CalculatorTests {
         assertEquals(1500, bob.getSalary());
         assertEquals("Desenvolvedor", bob.getRole());
     }
+
+    @Test
+    void CalculateSalaryDeveloper() {
+        Employee e = new Employee("Bob Esponja", "bob.esponja@siricascudo.com", 3000.0, "Desenvolvedor");
+        Employee e2 = new Employee("Lula Molusco", "lula.molusco@siricascudo.com", 2000.0, "Desenvolvedor");
+
+        assertEquals(e.getSalary() * 0.8, calculator.calculateSalary(e));
+        assertEquals(e.getSalary() * 0.9, calculator.calculateSalary(e2));
+    }
 }
