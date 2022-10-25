@@ -1,6 +1,7 @@
-package Tests;
+package tests;
 
-import Models.Employee;
+import models.Employee;
+import calculator.Calculator;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -22,7 +23,7 @@ public class CalculatorTests {
         Employee e = new Employee("Bob Esponja", "bob.esponja@siricascudo.com", 3000.0, "Desenvolvedor");
         Employee e2 = new Employee("Lula Molusco", "lula.molusco@siricascudo.com", 2000.0, "Desenvolvedor");
 
-        assertEquals(e.getSalary() * 0.8, calculator.calculateSalary(e));
-        assertEquals(e.getSalary() * 0.9, calculator.calculateSalary(e2));
+        assertEquals(e.getSalary() * 0.8, Calculator.calculateSalary(e));
+        assertEquals(e2.getSalary() * 0.9, Calculator.calculateSalary(e2));
     }
 }
