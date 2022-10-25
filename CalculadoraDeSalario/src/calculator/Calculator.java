@@ -16,6 +16,12 @@ public class Calculator {
             } else {
                 return e.getSalary() * 0.85;
             }
+        } else if (e.getRole().equals("Gerente")) {
+            if (e.getSalary() >= 5000) {
+                return e.getSalary() * 0.7;
+            } else {
+                return e.getSalary() * 0.8;
+            }
         }
         return e.getSalary();
     }
