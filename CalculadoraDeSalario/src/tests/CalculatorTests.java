@@ -37,8 +37,8 @@ public class CalculatorTests {
 
     @Test
     void CalculateSalaryTester() {
-        Employee e = new Employee("Bob Esponja", "bob.esponja@siricascudo.com", 2000.0, "Tester");
-        Employee e2 = new Employee("Lula Molusco", "lula.molusco@siricascudo.com", 1500.0, "Tester");
+        Employee e = new Employee("Bob Esponja", "bob.esponja@siricascudo.com", 2000.0, "Testador");
+        Employee e2 = new Employee("Lula Molusco", "lula.molusco@siricascudo.com", 1500.0, "Testador");
 
         assertEquals(e.getSalary() * 0.75, Calculator.calculateSalary(e));
         assertEquals(e2.getSalary() * 0.85, Calculator.calculateSalary(e2));
