@@ -10,6 +10,12 @@ public class Calculator {
             } else {
                 return e.getSalary()*0.9;
             }
+        } else if (e.getRole().equals("DBA")) {
+            if (e.getSalary() >= 2000) {
+                return e.getSalary() * 0.75;
+            } else {
+                return e.getSalary() * 0.85;
+            }
         }
         return e.getSalary();
     }
